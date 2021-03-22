@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title%}
+<title>Главная страница</title>
+{% endblock title%}
+
+{% block content %}
+{% if user.is_authenticated %}
+Hi {{ user.username }}!
+<p><a href="{% url 'logout' %}">logout</a></p>
+{% else %}
+<p>You are not logged in</p>
+<a href="{% url 'login' %}">login</a> |
+<a href="{% url 'signup' %}">signup</a>
+{% endif %}
+
+
+<h2>Home Page</h2>
+<a href="{% url 'rubric_list' %}">Рубрики</a> | <a href="{% url 'post_list' %}">Посты</a> |
+<a href="{% url 'gallery' %}">Галерея</a>
+{% endblock %}

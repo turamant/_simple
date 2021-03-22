@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title%}
+<title>Пост</title>
+{% endblock title%}
+
+{% block content %}
+<h2>Удалить пост</h2>
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p>Вы хотите удалить пост: "{{ post.title }} ?"</p>
+    <input type="submit" value="Confirm">
+</form>
+{% endblock %}

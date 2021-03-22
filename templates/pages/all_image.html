@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title%}
+<title>Галерея</title>
+{% endblock title%}
+
+{% block content %}
+<li><a href="{% url 'home' %}">на Главную страницу</a></li>
+<h2>Галерея всех картинок на сайте</h2>
+<br>
+{% for image in object_list %}
+    <img src="{{ image.name.url }}" height="100" width="100">
+{% endfor %}
+<hr>
+
+{% endblock %}

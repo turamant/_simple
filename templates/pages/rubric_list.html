@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title%}
+<title>Все рубрики</title>
+{% endblock title%}
+
+{% block content %}
+<a href="{% url 'home' %}">на Главную страницу</a>
+<h2>Все рубрики:</h2>
+{% for rubric in object_list %}
+<ul>
+      <li>
+        <a href="{{ rubric.get_absolute_url }}">{{rubric.name}}</a>
+      </li>
+</ul>
+{% endfor %}
+<li><a href="{% url 'rubric_new' %}">+ Новая рубрика</a></li>
+
+{% endblock %}

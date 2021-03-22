@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title%}
+<title>Рубрика</title>
+{% endblock title%}
+
+{% block content %}
+<p><a href="{% url 'rubric_list' %}">Переход во все рубрики</a></p>
+<p><a href="{% url 'rubric_update' rubric.url %}">+ Редактировать рубрику</a></p>
+<p><a href="{% url 'rubric_delete' rubric.url %}">+ Удалить рубрику</a></p>
+<ul>
+    <h3>Рубрика: {{ rubric.name }}</h3>
+    {% for post in rubric.rubrics.all %}
+        <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+        <a href="{{ post.get_absolute_url }}"><img src="{{ post.foto_post.url }}" height="25" width="25"></a>
+    {% endfor %}
+    </ul>
+
+{% endblock %}

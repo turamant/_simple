@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title%}
+<title>Все посты</title>
+{% endblock title%}
+
+{% block content %}
+<a href="{% url 'home' %}">на Главную страницу</a>   |||   <a href="{% url 'post_new' %}">+ Новый пост</a>
+
+<h2>Все посты:</h2>
+{% for post in object_list %}
+<ul>
+      <li>
+          <a href="{{ post.get_absolute_url }}"><img src="{{post.foto_post.url}}" width="50" height="50"></a>
+          <a href="{{ post.get_absolute_url }}">{{post.title}}</a>
+      </li>
+</ul>
+{% endfor %}
+
+{% endblock %}
