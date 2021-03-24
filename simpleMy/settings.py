@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     #my app
     'pages',
     'users',
+    'api',
+
+    #3-rd party
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
